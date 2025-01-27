@@ -25,7 +25,7 @@ def on_connect(client, userdata, flags, rc):
         print(f"Connection failed with code {rc}")
 
 def on_message(client, userdata, msg):
-    response = chat.send_message(f"In one word, what's the ideal animal that lives in these conditions: {msg.payload.decode()}")
+    response = chat.send_message(f"In one word, what's the ideal animal that lives in these conditions that is NOT a human: {msg.payload.decode()}")
     if hasattr(response, "candidates") and response.candidates:  
         ideal_animal = response.candidates[0].content.parts[0].text.strip()
     else:
